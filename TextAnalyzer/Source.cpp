@@ -62,7 +62,7 @@ namespace tean
 			return substr_positions;
 		}
 
-		int find_substr(const string substr, const size_t threads_count = 1)
+		size_t find_substr(const string substr, const size_t threads_count = 1)
 		{
 
 			if (!file_analyze())
@@ -275,7 +275,7 @@ int main(int argc, char** argv)
 
 	auto begin = chrono::system_clock::now();
 
-	int positions_count = text1.find_substr(substr, threads_count);
+	size_t positions_count = text1.find_substr(substr, threads_count);
 
 	auto end = chrono::system_clock::now();
 
