@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.13)
 
 set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 20)
 
-project(project)
+project(test)
 
-set(SOURCE_FILES TextAnalyzer/Source.cpp)
-
-add_executable(project ${SOURCE_FILES})
+add_subdirectory(TextAnalyzer)
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(${PROJECT_NAME} TextAnalyzer)
