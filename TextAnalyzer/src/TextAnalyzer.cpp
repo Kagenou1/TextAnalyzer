@@ -1,4 +1,5 @@
 #include "../include/TextAnalyzer.hpp"
+#include "TextAnalyzer.hpp"
 
 namespace fs = std::filesystem;
 using namespace tean;
@@ -32,7 +33,7 @@ size_t text_analyzer::find_substr(const std::string substr, const size_t threads
 	if (substr.size() == 0)
 		return 0;
 
-	threads.clear();
+	configure();
 	threads.resize(threads_count);
 
 	size_t rem = text_size % threads_count;
@@ -101,16 +102,19 @@ bool text_analyzer::file_analyze()
 	if (!fs::exists(file_path) || text_size == 0)
 		return false;
 
-	std::cout << std::format("Text size - {} bytes", text_size) << std::endl;
-
 	return true;
 };
 
+void text_analyzer::configure()
+{
+	threads.clear();
+	substr_positions.clear();
+}
 positions_array text_analyzer::_find_substr(const std::string_view substr, const size_t offset = 0, const size_t bytes_to_read = 0)
 {
 	//auto begin = chrono::system_clock::now();
 
-	int thread_id = thread_count.load();
+	//int thread_id = thread_count.load();
 	thread_count.fetch_add(1);
 
 	//cout << format("Thread {} from pos {} - {} bytes\n", thread_id, offset, bytes_to_read);

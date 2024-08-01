@@ -17,10 +17,7 @@ int main(int argc, char** argv)
 		string file_path_str{};
 		getline(cin, file_path_str);
 		erase(file_path_str, ' ');
-		erase(file_path_str, '\n');
-		cout << file_path_str << endl;
 		file_path = file_path_str;
-		cout << file_path << endl;
 	}
 	if (file_path == " " || !filesystem::exists(file_path))
 	{

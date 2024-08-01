@@ -1,3 +1,6 @@
+#ifndef TEXTANALYZER_HPP
+#define TEXTANALYZER_HPP
+
 #include <iostream>
 #include <fstream>
 #include <filesystem>
@@ -46,6 +49,8 @@ namespace tean
 
 		bool file_analyze();
 
+		void configure();
+
 		positions_array _find_substr(const std::string_view substr, const size_t offset, const size_t bytes_to_read);
 
         std::vector < std::future<positions_array>> threads{};
@@ -64,3 +69,5 @@ namespace tean
     }
    
 }
+
+#endif// TEXTANALYZER_HPP

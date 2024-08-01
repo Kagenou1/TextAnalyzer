@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-set(SOURCES 
-    src/TextAnalyzer.cpp
-)
-add_library(TextAnalyzer SHARED ${SOURCES})
-target_include_directories(TextAnalyzer INTERFACE include)
+file(GLOB_RECURSE SOURCES src/*.cpp)
+add_library(TextAnalyzer ${SOURCES})
+target_include_directories(TextAnalyzer PUBLIC include)
+add_subdirectory(tests)
