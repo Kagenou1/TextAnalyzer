@@ -41,6 +41,8 @@ namespace tean
 
 		positions_array get_indexes() const;
 
+		bool is_valid() const;
+
 		size_t find_substr(const std::string substr, const size_t threads_count);
 
 	private:

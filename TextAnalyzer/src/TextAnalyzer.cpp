@@ -24,6 +24,11 @@ positions_array tean::text_analyzer::get_indexes() const
     return substr_positions;
 }
 
+bool tean::text_analyzer::is_valid() const
+{
+    return fs::exists(file_path);
+}
+
 size_t text_analyzer::find_substr(const std::string substr, const size_t threads_count = 1)
 {
 

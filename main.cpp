@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 	}
 	if (file_path == " " || !filesystem::exists(file_path))
 	{
-		cout << "Invalid file path" << endl;
+		cout << "\nInvalid file path" << endl;
 		return -1;
 	}
 	cout << format("Path to .txt file - {}", file_path.string()) << endl;
@@ -53,7 +53,7 @@ int main(int argc, char** argv)
 
 		if(threads_count == 0)
 		{
-			throw out_of_range("Zero threads given");
+			throw out_of_range("\nZero threads given");
 		}
 
 		cout << format("Threads count - {}", threads_count) << endl;
